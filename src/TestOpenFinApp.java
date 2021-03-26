@@ -37,36 +37,36 @@ public class TestOpenFinApp implements DesktopStateListener {
     }
 
     public static void main(String[] args) throws Exception {
+        log.println("main");
         TestOpenFinApp testOpenFinApp = new TestOpenFinApp();
         testOpenFinApp.start();
-        log.println("Hello, world!");
         Thread.sleep(10000000);
     }
 
     @Override
     public void onReady() {
-        log.println("onReady");
+        log.println("onReady\n");
         initChannel();
     }
 
     @Override
     public void onClose(String s) {
-        log.printf("onClose, %s", s);
+        log.printf("onClose, %s\n", s);
     }
 
     @Override
     public void onError(String s) {
-        log.printf("onError, %s", s);
+        log.printf("onError, %s\n", s);
     }
 
     @Override
     public void onMessage(String s) {
-        log.printf("onMessage, %s", s);
+        log.printf("onMessage, %s\n", s);
     }
 
     @Override
     public void onOutgoingMessage(String s) {
-        log.printf("onOutgoingMessage, %s", s);
+        log.printf("onOutgoingMessage, %s\n", s);
     }
 
     private void initChannel() {
@@ -76,7 +76,7 @@ public class TestOpenFinApp implements DesktopStateListener {
             @Override
             public void onSuccess(ChannelProvider channelProvider) {
                 TestOpenFinApp.this.channelProvider = channelProvider;
-                log.printf("Successfully created %s", CHANNEL_NAME);
+                log.printf("Successfully created %s\n", CHANNEL_NAME);
                 launchApp();
             }
         });
@@ -88,15 +88,16 @@ public class TestOpenFinApp implements DesktopStateListener {
         demoApp.isRunning(running -> {
             if (!running) {
                 try {
+                    log.println("The app is not running, launching the app from manifest URL");
                     Application.createFromManifest(APP_CONFIG_URL, app -> {
                         try {
                             app.run();
                         } catch (DesktopException e) {
-                            log.printf("Failed to run the app, error=%s", e);
+                            log.printf("Failed to run the app, error=%s\n", e);
                         }
                     }, null, desktopConnection);
                 } catch (DesktopException e) {
-                    log.printf("Failed to create the app from manifestUrl, error=%s", e);
+                    log.printf("Failed to create the app from manifestUrl, error=%s\n", e);
                 }
 
             } else {
