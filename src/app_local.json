@@ -1,0 +1,20 @@
+{
+  "devtools_port": 9090,
+  "startup_app": {
+    "name": "OpenFin Demo App",
+    "description": "A demo OpenFin app",
+    "url": "http://localhost:9070",
+    "uuid": "openfin-demo-application",
+    "autoShow": true,
+	"taskbarIcon": "http://localhost:9070/taskbar-icon.png"
+  },
+  "runtime": {
+    "arguments": "",
+    "version": "stable"
+  },
+  "shortcut": {
+    "company": "OpenFin",
+    "description": "OpenFin HelloWorld App",
+    "name": "OpenFin HelloWorld App"
+  }
+}
