@@ -1,3 +1,5 @@
+import com.openfin.desktop.Ack;
+import com.openfin.desktop.AckListener;
 import com.openfin.desktop.Application;
 import com.openfin.desktop.AsyncCallback;
 import com.openfin.desktop.DesktopConnection;
@@ -6,6 +8,7 @@ import com.openfin.desktop.DesktopStateListener;
 import com.openfin.desktop.RuntimeConfiguration;
 import com.openfin.desktop.channel.Channel;
 import com.openfin.desktop.channel.ChannelProvider;
+import org.json.JSONObject;
 
 import java.io.PrintStream;
 import java.util.UUID;
@@ -102,8 +105,24 @@ public class TestOpenFinApp implements DesktopStateListener {
 
             } else {
                 log.println("The app is already running");
+                invokeAction();
             }
         }, null);
+    }
+
+    private void invokeAction() {
+        log.println("invokeAction");
+        channelProvider.publish("openfin-action", new JSONObject().put("key", "112233"), new AckListener() {
+            @Override
+            public void onSuccess(Ack ack) {
+                log.printf("Received ack=%s in onSuccess\n", ack);
+            }
+
+            @Override
+            public void onError(Ack ack) {
+                log.printf("Received ack=%s in onError\n", ack);
+            }
+        });
     }
 
 }
