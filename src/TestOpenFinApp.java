@@ -22,7 +22,7 @@ public class TestOpenFinApp implements DesktopStateListener {
     private static final String DESKTOP_CONNECTION_UUID = UUID.randomUUID().toString();
     private static final String APP_UUID = "openfin-demo-application";
     private static final String APP_CONFIG_URL = "http://localhost:9070/app_local.json";
-    private static final String APP_CONFIG_VERSION = "18.87.55.19";
+    private static final String APP_CONFIG_VERSION = "19.89.59.24";
     private static final String CHANNEL_NAME = "openfin-test-channel";
 
     public TestOpenFinApp() throws Exception {
