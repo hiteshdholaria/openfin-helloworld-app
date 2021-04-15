@@ -9,8 +9,7 @@
 	"taskbarIcon": "http://localhost:9070/taskbar-icon.png"
   },
   "runtime": {
-    "arguments": "",
-    "version": "stable"
+    "version": "19.89.59.24"
   },
   "shortcut": {
     "company": "OpenFin",
