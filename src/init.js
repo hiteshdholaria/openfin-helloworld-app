@@ -11,12 +11,9 @@ function init(){
 
 
 async function createClient(channelName) {
-   // A payload can be sent along with channel connection requests to help with authentication
-   const connectPayload = { payload: 'openfin-payload' };
-
-   // If the channel has been created this request will be sent to the provider.  If not, the
-   // promise will not be resolved or rejected until the channel has been created. 
-   const clientBus = await fin.InterApplicationBus.Channel.connect(channelName, connectPayload);
+   // If the channel has been created this request will be sent to the provider.
+   // If not, the promise will not be resolved or rejected until the channel has been created.
+   const clientBus = await fin.InterApplicationBus.Channel.connect(channelName);
 
    clientBus.onDisconnection(channelInfo => {
        // handle the channel lifecycle here - we can connect again which will return a promise
