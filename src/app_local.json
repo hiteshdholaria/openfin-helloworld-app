@@ -1,10 +1,13 @@
 {
+  "licenseKey": "5e87d7ca-bc78-4180-9497-c56687f4b238",
+  "runtimeVersion": "19.89.59.24",
+  "channelEnvironment": "qa",
   "devtools_port": 9090,
   "startup_app": {
-    "name": "OpenFin Demo App",
+    "name": "BidFX QA",
     "description": "A demo OpenFin app",
     "url": "http://localhost:9070",
-    "uuid": "openfin-demo-application",
+    "uuid": "BidFX QA",
     "autoShow": true,
 	"taskbarIcon": "http://localhost:9070/taskbar-icon.png"
   },
