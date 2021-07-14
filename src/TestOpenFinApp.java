@@ -20,10 +20,10 @@ public class TestOpenFinApp implements DesktopStateListener {
     private volatile boolean ready = false;
     private ChannelProvider channelProvider;
     private static final String DESKTOP_CONNECTION_UUID = UUID.randomUUID().toString();
-    private static final String APP_UUID = "openfin-demo-application";
+    private static final String APP_UUID = "BidFX QA";
     private static final String APP_CONFIG_URL = "http://localhost:9070/app_local.json";
     private static final String APP_CONFIG_VERSION = "19.89.59.24";
-    private static final String CHANNEL_NAME = "openfin-test-channel";
+    private static final String CHANNEL_NAME = "tradesmart-channel-qa";
 
     public TestOpenFinApp() throws Exception {
     }
@@ -112,7 +112,7 @@ public class TestOpenFinApp implements DesktopStateListener {
 
     private void invokeAction() {
         log.println("invokeAction");
-        channelProvider.publish("openfin-action", new JSONObject().put("key", "112233"), new AckListener() {
+        channelProvider.publish("tradesmart-channel-grant-code-request-qa", new JSONObject().put("key", "112233"), new AckListener() {
             @Override
             public void onSuccess(Ack ack) {
                 log.printf("Received ack=%s in onSuccess\n", ack);
