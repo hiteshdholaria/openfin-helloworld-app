@@ -9,7 +9,12 @@
     "url": "http://localhost:9070",
     "uuid": "BidFX QA",
     "autoShow": true,
-	"taskbarIcon": "http://localhost:9070/taskbar-icon.png"
+	"taskbarIcon": "http://localhost:9070/taskbar-icon.png",
+    "permissions": {
+      "System": {
+        "launchExternalProcess": true
+      }
+    }
   },
   "runtime": {
     "version": "19.89.59.24"
